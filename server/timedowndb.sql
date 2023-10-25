@@ -148,32 +148,25 @@ ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 -- Data for Name: activitylog; Type: TABLE DATA; Schema: public; Owner: tpl1122_17
 --
 
-COPY public.activitylog (id, creationdate, userid, taskid, timeblockid, actiontype) FROM stdin;
-\.
 
 
 --
 -- Data for Name: tasks; Type: TABLE DATA; Schema: public; Owner: tpl1122_17
 --
 
-COPY public.tasks (id, userid, duedate, title, description, tags, timeest) FROM stdin;
-\.
 
 
 --
 -- Data for Name: timeblocks; Type: TABLE DATA; Schema: public; Owner: tpl1122_17
 --
 
-COPY public.timeblocks (id, taskid, userid, start, "end", isblackout, isrecurring, incalendar) FROM stdin;
-\.
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: tpl1122_17
 --
 
-COPY public.users (id, lastname, firstname, email, sub, settings, creationdate) FROM stdin;
-\.
+INSERT INTO public.users (id, lastname, firstname, email, sub, settings, creationdate) OVERRIDING SYSTEM VALUE VALUES (1, 'Klassen', 'Brienna', 'brienna.klassen@gmail.com', 'google-oauth2|103567784560867633744', NULL, '2023-10-24');
 
 
 --
@@ -201,7 +194,7 @@ SELECT pg_catalog.setval('public.timeblocks_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tpl1122_17
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
 
 
 --
