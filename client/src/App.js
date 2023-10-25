@@ -1,6 +1,6 @@
 import "./App.css";
 import NavBar from "./components/nav-bar";
-import Students from "./components/students";
+import Calendar from "./calendar/Calendar.js";
 import Profile from "./components/profile";
 import { useAuth0 } from '@auth0/auth0-react';
 import Loading from "./components/loading";
@@ -19,8 +19,8 @@ function App() {
       <NavBar />
       <div className="container flex-grow-1">
       {!user ? <span>Hello from Techtonica From DEV!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }
+      <Calendar />
       <Routes>
-      <Route path="/" element={<Students user={user}/>} />
       <Route path="api/me" element={<Profile user={user}/>} />
       </Routes>
       </div>
